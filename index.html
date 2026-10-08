@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alt Ledger — Independent Research. Smarter Investing.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <button class="logo" data-go="research" aria-label="Alt Ledger home"><span>ALT</span><span>LEDGER</span></button>
+    <nav class="navlinks">
+      <a href="#research" id="lnkResearch">Research</a>
+      <a href="#news" id="lnkNews">News</a>
+      <a href="#research">Our Clients</a><a href="#research">Our Team</a><a href="#research">About</a>
+    </nav>
+    <div class="navright">
+      <button id="globalSearch" aria-label="Search">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+      <a href="#research" style="font-weight:600;font-size:14px;text-decoration:none">Log in</a>
+      <button class="btn btn-primary">Get started</button>
+    </div>
+  </div>
+</header>
+
+<div class="tickwrap">
+  <div class="ticklabel">Top news</div>
+  <div class="tickview"><div class="tickrun" id="tickrun"></div></div>
+</div>
+
+<main>
+
+<!-- ============================ RESEARCH ============================ -->
+<div class="page" id="pgResearch">
+  <div class="view on" id="rLibrary">
+    <div class="wrap">
+      <div class="crumb"><button data-go="research">Home</button>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <button id="rOpenMega">Research</button>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <b id="rCrumbNow">Mutual Funds</b></div>
+
+      <div class="mega" id="rMega">
+        <h2>Research</h2>
+        <p class="lede2">Explore our research across investment products and strategies.</p>
+        <div class="mega-grid" id="rMegaGrid"></div>
+      </div>
+
+      <div class="phead">
+        <h1 id="rPTitle">Mutual Fund Research</h1>
+        <p class="lede" id="rPLede"></p>
+        <div class="kpis" id="rKpis"></div>
+        <p class="demo-note">Sample values for layout. Replace with live counts from the research database.</p>
+      </div>
+
+      <div class="searchwrap">
+        <div class="search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <input id="rQ" type="search" autocomplete="off" aria-label="Search research">
+          <button class="clearbtn" id="rClearQ" aria-label="Clear search">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <span class="kbd">⌘ K</span>
+        </div>
+        <div class="suggest" id="rSuggest"></div>
+      </div>
+
+      <div class="switch" role="tablist" aria-label="Research category" id="rSwitch"></div>
+
+      <div class="mobar"><button class="btn btn-outline" id="rOpenFilters" style="flex:1">Filter and sort<span id="rMobCount" class="mono" style="font-size:12px"></span></button></div>
+
+      <div class="cols">
+        <aside class="sidebar" id="rSidebar" aria-label="Filter research">
+          <div class="sidehead"><h2>Filter research</h2><button id="rResetTop">Reset</button></div>
+          <div class="fscroll" id="rFilterBody"></div>
+          <div class="sidefoot">
+            <button class="btn btn-quiet" id="rResetBtn">Reset</button>
+            <button class="btn btn-primary" id="rApplyBtn">Apply filters</button>
+          </div>
+        </aside>
+        <section>
+          <div class="resbar">
+            <div><h2 id="rResTitle">Mutual Fund Research</h2><div class="count" id="rResCount"></div></div>
+            <div class="resctl">
+              <div class="sel"><span>Sort by</span>
+                <select id="rSort" aria-label="Sort research">
+                  <option value="latest">Latest</option><option value="read">Most read</option>
+                  <option value="relevant">Most relevant</option><option value="updated">Recently updated</option>
+                </select></div>
+              <div class="vtoggle" role="group" aria-label="View">
+                <button id="rVGrid" aria-pressed="true" aria-label="Grid view"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 4h7v7H4V4ZM13 4h7v7h-7V4ZM4 13h7v7H4v-7ZM13 13h7v7h-7v-7Z" stroke="currentColor" stroke-width="1.6"/></svg></button>
+                <button id="rVList" aria-pressed="false" aria-label="List view"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="chips" id="rChips"></div>
+          <div class="results grid" id="rResults"></div>
+          <div class="loadmore" id="rLoadmore"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="view" id="rDetail"></div>
+</div>
+
+<!-- ============================ NEWS ============================ -->
+<div class="page" id="pgNews">
+  <div class="view on" id="nDash">
+    <div class="catnav"><div class="wrap"><div class="inner" id="nCatnav"></div></div></div>
+    <div class="wrap">
+      <section class="hero">
+        <h1>Market intelligence. Beyond the headlines.</h1>
+        <p class="lede">Track the economic, industry and company developments shaping markets, and understand their potential impact across asset classes.</p>
+        <div class="searchwrap">
+          <div class="search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <input id="nQ" type="search" autocomplete="off" placeholder="Search news, companies, sectors, economies or topics…" aria-label="Search news">
+            <span class="kbd">⌘ K</span>
+          </div>
+          <div class="suggest" id="nSuggest"></div>
+        </div>
+        <div id="nBreakingSlot"></div>
+      </section>
+
+      <div class="mobar"><button class="btn btn-outline" id="nOpenFilters" style="flex:1">Filters<span class="mono" id="nMobCount" style="font-size:12px"></span></button></div>
+
+      <div class="cols">
+        <aside class="railL" id="nRailL" aria-label="News filters">
+          <div class="panel">
+            <h2>Filter news<button id="nClearSide">Clear all</button></h2>
+            <div id="nFilters"></div>
+            <div style="padding:12px 16px;border-top:1px solid var(--border-soft)">
+              <button class="btn btn-primary btn-sm" style="width:100%" id="nApplyBtn">Apply filters</button>
+            </div>
+          </div>
+        </aside>
+
+        <section>
+          <div class="secthead">
+            <div><h2 id="nFeedTitle">Top news</h2><div class="cnt" id="nFeedCount"></div></div>
+            <div class="right"><div class="sel"><span>Sort</span>
+              <select id="nSort" aria-label="Sort news">
+                <option value="time">Latest</option><option value="impact">Highest impact</option><option value="source">Source</option>
+              </select></div></div>
+          </div>
+          <div class="chips" id="nChips"></div>
+          <div id="nFeatured"></div>
+          <div class="grid2" id="nTopgrid"></div>
+          <div class="secthead" id="nLatestHead"><div><h2>Latest news</h2><div class="cnt" id="nLatestCount"></div></div></div>
+          <div class="feed" id="nFeed"></div>
+          <div style="margin-top:22px;display:flex;justify-content:center"><button class="btn btn-outline" id="nMore">Load more news</button></div>
+        </section>
+
+        <aside class="railR">
+          <div class="panel"><h2>Market impact today <span class="demo">Demo</span></h2>
+            <div class="pbody"><div id="nMarketImpact"></div></div>
+            <p class="disc">News-based sentiment indicator, aggregated from the articles currently in view. Not an investment recommendation.</p>
+          </div>
+          <div class="panel"><h2>Trending topics</h2><div class="pbody" id="nTrending"></div></div>
+          <div class="panel"><h2>Sentiment heatmap</h2><div class="pbody"><div id="nHeatmap"></div></div>
+            <p class="disc">Aggregated sentiment from recent news by asset and region. Darker cells carry more weight.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <div class="view" id="nArticle"></div>
+  <div class="view" id="nTopic"></div>
+</div>
+
+</main>
+
+<div class="scrim" id="scrim"></div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<footer>
+  <div class="wrap">
+    <div class="c">
+      <div><button class="logo" data-go="research" style="display:inline-flex"><span>ALT</span><span>LEDGER</span></button>
+        <p style="margin:16px 0 0;font-size:14px;max-width:32ch">Independent research. Smarter investing.</p></div>
+      <div><h4>Research</h4>
+        <button data-goprod="mf">Mutual funds</button><button data-goprod="pms">PMS</button>
+        <button data-goprod="aif">AIF</button><button data-goprod="oth">Other funds</button></div>
+      <div><h4>News</h4>
+        <button data-gonews="global">Global economy</button><button data-gonews="india">Indian economy</button>
+        <button data-gonews="industry">Industry and sector</button><button data-gonews="financial">Financial sector</button>
+        <button data-gonews="companies">Companies</button></div>
+      <div><h4>Legal</h4><a href="#research">Disclaimer</a><a href="#research">Privacy policy</a><a href="#research">Terms of use</a><a href="#research">Methodology</a></div>
+    </div>
+    <p class="dz">Every fund name, manager, headline, source attribution, performance figure, sentiment score, impact rating and asset-impact estimate on this site is demo data created to demonstrate the interface. Nothing here is real-time news, and none of it is investment advice.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
